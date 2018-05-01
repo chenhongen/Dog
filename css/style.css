@@ -1,0 +1,9 @@
+body {
+  background-color: #FFE26D;
+}
+
+.demo {
+  display: table;
+  font-family: monospace;
+  margin: auto;
+}
