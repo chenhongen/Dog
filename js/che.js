@@ -4,6 +4,7 @@ var svg = document.getElementById("dog"),
     neck = svg.getElementById("neck"),
     tongue = svg.getElementById("tongue"),
     ears = svg.getElementById("ears"),
+    eyes = svg.getElementById("eyes"),
     head = svg.getElementById("arr"),
     config = { repeat: -1, yoyo: true },
     tl = new TimelineMax(config),
@@ -11,6 +12,7 @@ var svg = document.getElementById("dog"),
     neckTl = new TimelineMax(config),
     headTl = new TimelineMax(config),
     tongueTl = new TimelineMax(config),
+    eyesTl = new TimelineMax(config),
     earsTl = new TimelineMax(config);
 
 var Tail = document.createElementNS(svgNS,"path");
@@ -29,11 +31,14 @@ var Tail = document.createElementNS(svgNS,"path");
     // 头部运动(多个动作如何yoyo)
     headTl.to(head, .3, {rotation: 30, transformOrigin:"50% 50%", ease: Expo.easeIn})
         .to(head, .3, {rotation: -30, transformOrigin:"50% 50%", ease: Expo.easeIn},"+=1")
-        .to(head, .3, {rotation: 0, transformOrigin:"50% 50%"},"+=1");
+        .to(head, .3, {rotation: 0, transformOrigin:"50% 50%"},"+=1.5");
     // 舌头
     tongueTl.to(tongue, .2, {x: 3, ease:Sine.easeInOut});
     // 耳朵
     earsTl.to(ears, .3, {x: 1.5, rotation: 2, ease:Sine.easeInOut});
+    // 眼睛
+    eyesTl.to(eyes, .1, {opacity: 0},"+=1");
+
     function Left(){return  "M 45,33 C 0,26 0,-9 0,-15" };
     function Center(){return  "M 45,33 C 43,15 43,-10 43,-30" };
     function Right(){return  "M 45,33 C 83,26 83,-9 83,-15" };
